@@ -778,3 +778,365 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 2844ms (Views: 17.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:58:47 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2002ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:11:54 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2115ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:12:53 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2198ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:14:15 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1538ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `data' for #<String:0x007ff4493e0338>):
+  
+app/controllers/events_controller.rb:8:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:14:29 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:8: syntax error, unexpected ',', expecting =>
+der json: {response.body.data, message: response.message }
+                              ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end
+a, message: response.message }
+                              ^):
+  
+app/controllers/events_controller.rb:8: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:14:40 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2037ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `data' for #<String:0x007ff448fe1b10>):
+  
+app/controllers/events_controller.rb:8:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:14:57 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1816ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:17:26 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2178ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `body' for #<Hash:0x007ff44b8d3528>):
+  
+app/controllers/events_controller.rb:8:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:17:28 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2109ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `body' for #<Hash:0x007ff44bceb070>):
+  
+app/controllers/events_controller.rb:8:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:18:58 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:04 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:08 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:08 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:08 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:11: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:31 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:32 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:19:47 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2431ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<EventsController:0x007ff448eefe28>
+Did you mean?  respond_to?):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:20:10 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2375ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/events_controller.rb:7:in `respond_to?'
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:20:13 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2028ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/events_controller.rb:7:in `respond_to?'
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:20:35 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1796ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<EventsController:0x007ff449439b40>
+Did you mean?  respond_to?):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:20:45 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1995ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/events_controller.rb:7:in `respond_to?'
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:30:03 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2141ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:30:25 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1768ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:49:03 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2165ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `pretty_generate' for #<EventsController:0x007ff448feadf0>
+Did you mean?  pretty_print):
+  
+app/controllers/events_controller.rb:12:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:49:59 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2252ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:50:58 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2303ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:51:59 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2091ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+  
+JSON::GeneratorError (only generation of JSON objects or arrays allowed):
+  
+app/controllers/events_controller.rb:14:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:52:16 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2197ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:52:38 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:9: syntax error, unexpected '.', expecting keyword_end
+    .parsed_response
+     ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:9: syntax error, unexpected '.', expecting keyword_end
+app/controllers/events_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:52:44 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:52:48 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:52:55 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1933ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:53:03 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1950ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:53:08 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1803ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:53:11 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:53:12 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1805ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 3031ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-08 12:54:37 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 33ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:54:40 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2531ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+  
+JSON::GeneratorError (only generation of JSON objects or arrays allowed):
+  
+app/controllers/events_controller.rb:15:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:54:49 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2231ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:58:29 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+events = render format.json: { data: response.body, messag
+                            ^):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:58:32 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+events = render format.json: { data: response.body, messag
+                            ^):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:58:39 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+events = render format.json: { data: response.body, messag
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+app/controllers/events_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:58:41 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+events = render format.json: { data: response.body, messag
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+app/controllers/events_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:58:49 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+events = render format.json: { data: response.body, messag
+                            ^):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:58:56 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+events = render format.json: { data: response.body, messag
+                            ^):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ':'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:01 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1964ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:12 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1996ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:18 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2849ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:23 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1896ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:29 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1839ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:51 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected ',', expecting =>
+er json: { data.response.body, message: response.message }
+                              ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:13: syntax error, unexpected '}', expecting keyword_end
+y, message: response.message }
+                              ^):
+  
+app/controllers/events_controller.rb:13: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:13: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 12:59:58 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2219ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `data' for #<EventsController:0x007ff44930d8e8>):
+  
+app/controllers/events_controller.rb:13:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 13:00:13 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2147ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 13:00:22 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2285ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
