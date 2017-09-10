@@ -1833,3 +1833,62 @@ Completed 201 Created in 6ms (Views: 0.9ms | ActiveRecord: 2.8ms)
 
 
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 19:08:18 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"one", "email"=>"one@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "one"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:12:in `login'
+Started POST "/users/" for 127.0.0.1 at 2017-09-09 19:11:37 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"two", "email"=>"two@gmail.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2017-09-09 19:16:04 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "three"], ["email", "three@gmail.com"], ["password_digest", "$2a$10$8bR4hhxcGyAiXj//pyi5fur4KFOyoy2ZxmnIVnPfc7v1fe0UYZJKq"], ["created_at", "2017-09-10 02:16:05.039838"], ["updated_at", "2017-09-10 02:16:05.039838"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 148ms (Views: 1.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 19:16:05 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 132ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 19:16:21 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 136ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2017-09-09 19:18:05 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"four", "email"=>"four@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "four"], ["email", "four@gmail.com"], ["password_digest", "$2a$10$VsthZVBzuelRAJVtvVOsi.L7INAkhAPgDJ92oIrQsis5mhzOH7I6q"], ["created_at", "2017-09-10 02:18:05.144696"], ["updated_at", "2017-09-10 02:18:05.144696"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 140ms (Views: 1.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 19:18:05 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"four", "email"=>"four@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "four"], ["LIMIT", 1]]
+Completed 200 OK in 142ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
