@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :authenticate_token, except: [:login, :create]
   before_action :authorize_user, except: [:login, :create, :index]
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
     # payload method returns an object (hash) that includes user info
     def payload(id, username)
       {
-        exp: 1.day.from_now,
+        exp: (Time.now + 30.minutes).to_i,
         iat: Time.now.to_i,
         iss: ENV['JWT_ISSUER'],
         user: {
