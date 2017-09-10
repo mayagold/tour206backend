@@ -1,13 +1,12 @@
 require 'rubygems'
 require 'httparty'
 
-url = 'https://www.eventbriteapi.com/v3/events/search/?q=concert&location.address=seattle&token=ISIHLNSRVCTAIEHALGNE'
-
 class EventsController < ApplicationController
   def index
-    response = HTTParty.get(url)
-    JSON.parse(response)
+    response = HTTParty.get('https://www.eventbriteapi.com/v3/events/search/?location.address=seattle&categories=103&token=ISIHLNSRVCTAIEHALGNE')
 
-render json: { data: response.body, message: response.message }
+@events = render json: response.body
+puts @events
   end
+
 end
