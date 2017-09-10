@@ -4,6 +4,19 @@ class UsersController < ApplicationController
   before_action :authenticate_token, except: [:login, :create]
   before_action :authorize_user, except: [:login, :create, :index]
 
+
+    # Login
+    def login
+      user = User.find_by(username: params[:user][:username])
+
+      if user && user.authenticate(params[:user][:password])
+        token = create_token(user.id, user.username)
+        render json: {status: 200, token: token, user: user}
+      else
+        render json: {status: 401, message: "Unauthorized"}
+      end
+    end
+
   # GET /users
   def index
     @users = User.all
@@ -41,16 +54,6 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
-  # Login
-  def login
-    user = User.find_by(username: params[:user][:username])
-    if user && user.authenticate(params[:user][:password])
-      token = create_token(user.id, user.username)
-      render json: {status: 200, token: token, user: user}
-    else
-      render json: {status: 401, message: "Unauthorized"}
-    end
-  end
 
   private
     # create_token is a method to trigger the token generation process.
@@ -76,6 +79,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :email, :password_digest)
+      params.require(:user).permit(:username, :email, :password)
     end
 end
