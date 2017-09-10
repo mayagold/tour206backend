@@ -1,0 +1,1512 @@
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7634328003660299550)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVenues (20170908014019)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "venues" ("id" bigserial primary key, "name" character varying, "address" character varying, "neighborhood" character varying, "capacity" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014019"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateShows (20170908014240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "shows" ("id" bigserial primary key, "headliner" character varying, "openers" character varying, "date" date, "time" time, "price" integer, "soldout" boolean, "genre" character varying, "ages" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014240"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToShows (20170908014255)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "shows" ADD "venue_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014255"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-08 01:48:11.999529"], ["updated_at", "2017-09-08 01:48:11.999529"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7634328003660299550)[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShow Load (0.4ms)[0m  [1m[34mSELECT  "shows".* FROM "shows" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mShow Load (0.7ms)[0m  [1m[34mSELECT  "shows".* FROM "shows" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2017-09-07 19:23:26 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mayagold/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mayagold/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/venues" for 127.0.0.1 at 2017-09-07 19:23:33 -0700
+Processing by VenuesController#index as HTML
+  [1m[36mVenue Load (0.9ms)[0m  [1m[34mSELECT "venues".* FROM "venues"[0m
+Completed 200 OK in 20ms (Views: 6.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/shows" for 127.0.0.1 at 2017-09-07 19:23:37 -0700
+Processing by ShowsController#index as HTML
+  [1m[36mShow Load (0.9ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+Completed 200 OK in 13ms (Views: 2.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-08 08:53:31 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "tour206_api_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/shows" for 127.0.0.1 at 2017-09-08 08:54:28 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "tour206_api_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/show" for 127.0.0.1 at 2017-09-08 08:54:35 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "tour206_api_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/shows" for 127.0.0.1 at 2017-09-08 08:55:15 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "tour206_api_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-08 08:55:17 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "tour206_api_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-08 08:55:19 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "tour206_api_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (43.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7634328003660299550)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVenues (20170908014019)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.6ms)[0m  [1m[35mCREATE TABLE "venues" ("id" bigserial primary key, "name" character varying, "address" character varying, "neighborhood" character varying, "capacity" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014019"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateShows (20170908014240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "shows" ("id" bigserial primary key, "headliner" character varying, "openers" character varying, "date" date, "time" time, "price" integer, "soldout" boolean, "genre" character varying, "ages" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToShows (20170908014255)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.1ms)[0m  [1m[35mALTER TABLE "shows" ADD "venue_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014255"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (13.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-08 15:57:13.167132"], ["updated_at", "2017-09-08 15:57:13.167132"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7634328003660299550)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-09-08 08:57:23 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 17ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/shows" for 127.0.0.1 at 2017-09-08 08:57:34 -0700
+Processing by ShowsController#index as HTML
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+Completed 200 OK in 25ms (Views: 6.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-08 09:20:58 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-08 09:47:58 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 27ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-08 11:04:11 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 73ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:04:25 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant EventsController::Events):
+  
+app/controllers/events_controller.rb:4:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:04:47 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:04:51 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:04:55 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:05:05 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:05:12 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-08 11:05:16 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2017-09-08 11:05:18 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/events"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:05:21 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:10:24 -0700
+  [1m[35m (50.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant EventsController::HTTParty):
+  
+app/controllers/events_controller.rb:3:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:10:51 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:01 -0700
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:01 -0700
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:01 -0700
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:01 -0700
+  
+Processing by EventsController#index as HTML
+NameError (uninitialized constant EventsController::HTTParty):
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+  
+app/controllers/events_controller.rb:3:in `index'
+NameError (uninitialized constant EventsController::HTTParty):
+  
+app/controllers/events_controller.rb:3:in `index'
+Processing by EventsController#index as HTML
+Processing by EventsController#index as HTML
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:02 -0700
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:02 -0700
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+Processing by EventsController#index as HTML
+Processing by EventsController#index as HTML
+  
+  
+  
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+NameError (uninitialized constant EventsController::HTTParty):
+NameError (uninitialized constant EventsController::HTTParty):
+NameError (uninitialized constant EventsController::HTTParty):
+  
+  
+  
+  
+  
+NameError (uninitialized constant EventsController::HTTParty):
+NameError (uninitialized constant EventsController::HTTParty):
+app/controllers/events_controller.rb:3:in `index'
+app/controllers/events_controller.rb:3:in `index'
+app/controllers/events_controller.rb:3:in `index'
+  
+  
+app/controllers/events_controller.rb:3:in `index'
+app/controllers/events_controller.rb:3:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:11:09 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant EventsController::HTTParty):
+  
+app/controllers/events_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2017-09-08 11:16:02 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dpgardne/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:16:08 -0700
+  
+LoadError (cannot load such file -- httparty):
+  
+app/controllers/events_controller.rb:2:in `<top (required)>'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:16:14 -0700
+  
+LoadError (cannot load such file -- httparty):
+  
+app/controllers/events_controller.rb:2:in `<top (required)>'
+Started GET "/events/" for 127.0.0.1 at 2017-09-08 11:16:16 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/events"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:16:26 -0700
+  
+LoadError (cannot load such file -- httparty):
+  
+app/controllers/events_controller.rb:2:in `<top (required)>'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:18:22 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2212ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:19:41 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2051ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/" for 127.0.0.1 at 2017-09-08 11:19:49 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/events"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:20:14 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2178ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:21:34 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:6: syntax error, unexpected '\n', expecting =>
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end):
+  
+app/controllers/events_controller.rb:6: syntax error, unexpected '\n', expecting =>
+app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:21:36 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:6: syntax error, unexpected '\n', expecting =>
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end):
+  
+app/controllers/events_controller.rb:6: syntax error, unexpected '\n', expecting =>
+app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:21:38 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:6: syntax error, unexpected '\n', expecting =>
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end):
+  
+app/controllers/events_controller.rb:6: syntax error, unexpected '\n', expecting =>
+app/controllers/events_controller.rb:8: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:22:14 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2257ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:22:56 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:27:14 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 1890ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:27:33 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2253ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:28:02 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 1872ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:31:49 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+render json: {response.body, response.message}
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:31:51 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+render json: {response.body, response.message}
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:31:52 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+render json: {response.body, response.message}
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:32:05 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+render json: {response.body, response.message}
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:32:55 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+: {status: 200, response.body, response.message}
+                              ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:32:57 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+: {status: 200, response.body, response.message}
+                              ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:33:21 -0700
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+render json: {response.body, response.message}
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:33:34 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+render json: {response.body, response.message}
+                            ^
+/Users/dpgardne/Desktop/tour206backend/tour206_api/app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+sponse.body, response.message}
+                              ^):
+  
+app/controllers/events_controller.rb:7: syntax error, unexpected ',', expecting =>
+app/controllers/events_controller.rb:7: syntax error, unexpected '}', expecting keyword_end
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:35:44 -0700
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2162ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:36:21 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 204 No Content in 2131ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-08 11:43:35 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2844ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (121.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tour206_api_development"[0m
+  [1m[35m (181.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tour206_api_test"[0m
+  [1m[35m (444.4ms)[0m  [1m[35mCREATE DATABASE "tour206_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (391.4ms)[0m  [1m[35mCREATE DATABASE "tour206_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7634328003660299550)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVenues (20170908014019)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "venues" ("id" bigserial primary key, "name" character varying, "address" character varying, "neighborhood" character varying, "capacity" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014019"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateShows (20170908014240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "shows" ("id" bigserial primary key, "headliner" character varying, "openers" character varying, "date" date, "time" time, "price" integer, "soldout" boolean, "genre" character varying, "ages" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014240"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToShows (20170908014255)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "shows" ADD "venue_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908014255"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20170908185853)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908185853"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-08 18:59:22.369485"], ["updated_at", "2017-09-08 18:59:22.369485"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7634328003660299550)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Maya"], ["email", "example@gmail.com"], ["password_digest", "$2a$10$YNhK04iQDC/IcbevXO50E.gNUAkct.2J1R6L7aCtQ5LMh771N2nhu"], ["created_at", "2017-09-08 19:45:05.056188"], ["updated_at", "2017-09-08 19:45:05.056188"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 12:49:58 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 84ms (Views: 1.6ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:02:14 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (uninitialized constant UsersController::JWT):
+  
+app/controllers/users_controller.rb:55:in `create_token'
+app/controllers/users_controller.rb:45:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:05:20 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 0.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:16 -0700
+Processing by UsersController#index as HTML
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:26 -0700
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.3ms)
+
+
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:33 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:34 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:35 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:36 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:36 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:36 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:36 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:16:36 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:26:07 -0700
+Processing by UsersController#index as HTML
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:26:09 -0700
+Processing by UsersController#index as HTML
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:26:10 -0700
+Processing by UsersController#index as HTML
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/1" for 127.0.0.1 at 2017-09-08 13:31:04 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/users/1"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/1" for 127.0.0.1 at 2017-09-08 13:31:07 -0700
+  
+SyntaxError (/Users/mayagold/dev/tour206backend/tour206_api/app/controllers/application_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/application_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started GET "/users/1" for 127.0.0.1 at 2017-09-08 13:31:19 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/mayagold/dev/tour206backend/tour206_api/app/controllers/application_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/application_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started GET "/users/1" for 127.0.0.1 at 2017-09-08 13:31:59 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-08 13:34:05 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/users/login" for 127.0.0.1 at 2017-09-08 13:45:44 -0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/users/login"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started OPTIONS "/users/login" for 127.0.0.1 at 2017-09-08 13:46:59 -0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/users/login"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:47:25 -0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:48:42 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-08 13:50:05 -0700
+Processing by UsersController#index as HTML
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:50:15 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:51:59 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:53:25 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-08 13:54:59 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 14:16:31 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 1.9ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 14:19:58 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 23.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-09 16:10:24 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.9ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 58ms (Views: 0.7ms | ActiveRecord: 31.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-09 16:12:18 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 10ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-09 16:14:30 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:15:11 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:15:34 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:16:51 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:22:55 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:23:30 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:24:10 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:24:38 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:26:34 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Maya"], ["email", "test@test.com"], ["password_digest", "$2a$10$QMVkIajSoemHWPZjpZO38upboGuxRbnDgoQxp1xHTtnz1zJzwwSSi"], ["created_at", "2017-09-09 23:31:48.053716"], ["updated_at", "2017-09-09 23:31:48.053716"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:32:05 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"test@test.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:35:14 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"test@test.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:38:48 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"test@test.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 0.3ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:40:54 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 16:41:41 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:43:18 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:49:02 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:49:27 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:49:58 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 0.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 16:50:30 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 16:53:25 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 16:56:14 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 16:59:07 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:02:23 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:03:41 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:04:26 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:07:12 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:07:47 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:10:03 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:11:32 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 17:11:37 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 0.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:11:59 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:12:13 -0700
+  
+RuntimeError (Circular dependency detected while autoloading constant ApplicationController):
+  
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:12:23 -0700
+  
+ActionController::RoutingError (uninitialized constant ActionController::JWT):
+  
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:12:33 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationController::JTW):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:14:36 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 17:15:06 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:16:34 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:16:36 -0700
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:19 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+JWT::IncorrectAlgorithm (An algorithm must be specified):
+  
+app/controllers/application_controller.rb:21:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:30 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+JWT::IncorrectAlgorithm (An algorithm must be specified):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:31 -0700
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+JWT::IncorrectAlgorithm (An algorithm must be specified):
+  
+app/controllers/application_controller.rb:20:in `decode_token'
+app/controllers/application_controller.rb:5:in `authenticate_token'
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:44 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:51 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:53 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-09-09 17:17:54 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 17:18:11 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-09 17:19:24 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 17:19:42 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-09 17:21:33 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-09 17:21:34 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-09 17:21:36 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 17:21:46 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
