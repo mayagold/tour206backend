@@ -1,2 +1,1 @@
-# tour206backend
-Rails API for tour206
+https://tour206backend.herokuapp.com/
