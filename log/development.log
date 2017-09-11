@@ -2654,3 +2654,14 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 2284ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/events/index" for 127.0.0.1 at 2017-09-11 07:39:42 -0700
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-11 07:39:43 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1684ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2426ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
