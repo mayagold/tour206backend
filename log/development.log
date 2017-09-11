@@ -2205,3 +2205,452 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 17:32:44 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 200 OK in 2295ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:19:58 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:20:00 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2216ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:20:01 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2108ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:20:02 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2639ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 3018ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:20:16 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2320ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:22:21 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2157ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:26:53 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1827ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:34:50 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2394ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:35:00 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2320ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:36:08 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2218ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:39:05 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2109ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:39:41 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1701ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:40:15 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2074ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:40:36 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2775ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:40:43 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2302ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:41:08 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2063ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:41:24 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1931ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:41:54 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2384ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:42:24 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2342ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:43:27 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2258ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:43:37 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2249ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:47:54 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2264ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:50:39 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2404ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 18:53:14 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2423ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 19:03:22 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2124ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 19:03:31 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2118ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 19:04:19 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2224ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 19:32:14 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1986ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 19:33:36 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1626ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-10 19:35:45 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"two", "email"=>"two@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "two"], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 19:38:14 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1817ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:44:21 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1679ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:48:25 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1571ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:49:27 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2589ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:52:13 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1815ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:52:51 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1632ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:53:30 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1717ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:53:56 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2778ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:54:57 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1623ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:55:39 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1911ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:55:55 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1605ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:57:21 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2032ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:58:03 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1933ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:58:47 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1830ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:59:13 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2019ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 20:59:46 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1865ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:00:06 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2093ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:03:22 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2013ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:04:01 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1977ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:05:22 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2212ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:05:32 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1878ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:06:43 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1838ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:08:52 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2385ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:09:30 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1650ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:10:47 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2400ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:11:11 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:11:13 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2512ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2142ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:11:44 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1963ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:16:22 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1489ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:17:02 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1591ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:17:33 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1644ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:17:50 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:17:51 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1758ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:17:52 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1595ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1853ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:18:04 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1913ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:21:30 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:21:31 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1705ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:21:32 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2011ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1589ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:22:53 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:22:54 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1726ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1895ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:23:05 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1548ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:23:19 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1744ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:29:50 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1658ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:30:09 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1561ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:30:40 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1578ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:30:42 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1518ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:31:02 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1638ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:31:36 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:31:36 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1868ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1590ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:35:32 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1728ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:36:21 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1692ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:36:43 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1801ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:37:18 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1833ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:37:41 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1798ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:38:11 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1816ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:38:39 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:38:40 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1920ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1569ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 21:47:42 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2284ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
