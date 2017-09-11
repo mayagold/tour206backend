@@ -1892,3 +1892,285 @@ Processing by UsersController#login as HTML
 Completed 200 OK in 142ms (Views: 1.8ms | ActiveRecord: 0.3ms)
 
 
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 21:05:01 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 1.4ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 21:05:40 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 21:09:27 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 21:13:32 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 21:14:04 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"three", "email"=>"three@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "three"], ["LIMIT", 1]]
+Completed 200 OK in 71ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2017-09-09 21:14:17 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"four", "email"=>"four@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "four"], ["email", "four@gmail.com"], ["password_digest", "$2a$10$qdB8gObAnSGwIztwiVQXcOjsWWXoW3nisNOJGy/13IYM/MCBi06uG"], ["created_at", "2017-09-10 04:14:17.899032"], ["updated_at", "2017-09-10 04:14:17.899032"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 88ms (Views: 1.3ms | ActiveRecord: 13.1ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-09 21:14:17 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"four", "email"=>"four@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "four"], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 15:53:02 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to :80 (Connection refused - connect(2) for nil port 80)):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 15:53:15 -0700
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to :80 (Connection refused - connect(2) for nil port 80)):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 15:53:37 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 767ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 15:54:02 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Completed 200 OK in 511ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 15:58:57 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1894ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 15:59:47 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2213ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:00:46 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2116ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:02:46 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2095ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:03:05 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2198ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:14:46 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:14:46 -0700
+Completed 200 OK in 1993ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Processing by EventsController#index as HTML
+Completed 200 OK in 1559ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:17:29 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1824ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:25 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2888ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-10 16:18:35 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"one", "email"=>"one@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "one"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 11.7ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:12:in `login'
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:43 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:44 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:44 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:45 -0700
+Processing by EventsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:46 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2916ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2132ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:18:46 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1997ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1961ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2205ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1982ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2017-09-10 16:19:02 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@gmail.com"], ["password_digest", "$2a$10$iYczfckw6iWXpO/pjuD8nej00PSAlC.G6J8N9xjH1MByFOzyiFVV6"], ["created_at", "2017-09-10 23:19:02.629854"], ["updated_at", "2017-09-10 23:19:02.629854"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 79ms (Views: 1.8ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-10 16:19:02 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:20:41 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2129ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:21:44 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2437ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:23:46 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2043ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:25:24 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1497ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:26:01 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1759ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:26:10 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2181ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:27:42 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1914ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:28:04 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2630ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:29:18 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2246ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:37:39 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2065ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:50:49 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 3174ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:53:34 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2109ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:53:52 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2141ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:54:18 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2156ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:54:31 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2392ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:54:44 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 1975ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-10 16:56:58 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "maya"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/index" for 127.0.0.1 at 2017-09-10 16:57:34 -0700
+Processing by EventsController#index as HTML
+Completed 200 OK in 2006ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-10 16:57:40 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Maya", "email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Maya"], ["LIMIT", 1]]
+Completed 200 OK in 71ms (Views: 1.2ms | ActiveRecord: 0.7ms)
+
+
