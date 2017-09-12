@@ -16,17 +16,12 @@ ActiveRecord::Schema.define(version: 20170908185853) do
   enable_extension "plpgsql"
 
   create_table "shows", force: :cascade do |t|
-    t.string "headliner"
-    t.string "openers"
-    t.date "date"
-    t.time "time"
-    t.integer "price"
-    t.boolean "soldout"
-    t.string "genre"
-    t.string "ages"
+    t.string "name"
+    t.string "start"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "venue_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

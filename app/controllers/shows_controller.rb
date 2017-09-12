@@ -46,6 +46,6 @@ class ShowsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def show_params
-      params.require(:show).permit(:headliner, :openers, :date, :time, :price, :soldout, :genre, :ages)
+      params.require(:show).permit(:name, :start, :description, :user_id)
     end
 end
