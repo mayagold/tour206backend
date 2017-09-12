@@ -15,10 +15,12 @@ class ShowsController < ApplicationController
 
   # POST /shows
   def create
+    puts "LSDKFJLDKFJLSDKFJLSDKF"
+    puts params
     @show = Show.new(show_params)
 
     if @show.save
-      render json: @show, status: :created, location: @show
+      render json: @show, status: :created
     else
       render json: @show.errors, status: :unprocessable_entity
     end
