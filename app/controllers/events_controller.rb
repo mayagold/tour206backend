@@ -9,4 +9,5 @@ class EventsController < ApplicationController
 puts @events
   end
 
+
 end
