@@ -10576,3 +10576,48 @@ Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
 Completed 200 OK in 1883ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/shows" for 127.0.0.1 at 2017-09-12 09:34:33 -0700
+Processing by ShowsController#index as HTML
+Started GET "/events/index" for 127.0.0.1 at 2017-09-12 09:34:33 -0700
+Processing by EventsController#index as HTML
+  [1m[36mShow Load (13.3ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+Completed 200 OK in 18ms (Views: 4.6ms | ActiveRecord: 13.3ms)
+
+
+Completed 200 OK in 2067ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2017-09-12 09:34:38 -0700
+Processing by UsersController#login as HTML
+Started GET "/shows" for 127.0.0.1 at 2017-09-12 09:34:38 -0700
+  Parameters: {"user"=>{"username"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]"}}
+Processing by ShowsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mShow Load (68.8ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+Completed 200 OK in 72ms (Views: 2.7ms | ActiveRecord: 68.8ms)
+
+
+Started POST "/shows" for 127.0.0.1 at 2017-09-12 09:34:44 -0700
+Processing by ShowsController#create as HTML
+  Parameters: {"show"=>{"name"=>"MASTA ACE with Wake Self, Pryor Prism,  Mr Hi-Def and DJ Element", "start"=>"2017-09-12T20:00:00", "description"=>"\n9.12 Tuesday (Hip-Hop)\nNectar & Black Sam Entertainment present:\nMASTA ACE\nWake Self\nPryor Prism (Graves 33, Dox & DJ AV)\nMr Hi-Def\nDJ Element\n$13adv\n8pm, 21+\n\n\nNectar Lounge\n412 N 36th St\nwww.nectarlounge.com\n\n\n\n\n\nMASTA ACE\nWebsite\nBandcamp\n\n\n\n\n", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "shows" ("name", "start", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MASTA ACE with Wake Self, Pryor Prism,  Mr Hi-Def and DJ Element"], ["start", "2017-09-12T20:00:00"], ["description", "\n9.12 Tuesday (Hip-Hop)\nNectar & Black Sam Entertainment present:\nMASTA ACE\nWake Self\nPryor Prism (Graves 33, Dox & DJ AV)\nMr Hi-Def\nDJ Element\n$13adv\n8pm, 21+\n\n\nNectar Lounge\n412 N 36th St\nwww.nectarlounge.com\n\n\n\n\n\nMASTA ACE\nWebsite\nBandcamp\n\n\n\n\n"], ["created_at", "2017-09-12 16:34:44.339404"], ["updated_at", "2017-09-12 16:34:44.339404"], ["user_id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 10ms (Views: 1.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/shows" for 127.0.0.1 at 2017-09-12 09:34:46 -0700
+Started GET "/events/index" for 127.0.0.1 at 2017-09-12 09:34:46 -0700
+Processing by ShowsController#index as HTML
+Processing by EventsController#index as HTML
+  [1m[36mShow Load (0.7ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.7ms)
+
+
+Completed 200 OK in 1888ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
