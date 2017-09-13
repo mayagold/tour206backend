@@ -6,6 +6,17 @@
 # Read more: https://github.com/cyu/rack-cors
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
+
+  # anyone can read the API
+  allow do
+    origins '*'
+
+    resource '*',
+      headers: :any,
+      methods: [:get, :options, :head]
+  end
+
+  # Only these origins can alter the db
   allow do
     origins 'localhost:2045', 'https://tour206.herokuapp.com'
 
