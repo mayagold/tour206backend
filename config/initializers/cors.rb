@@ -7,14 +7,22 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
-  # anyone can read the API
 
   # Only these origins can alter the db
   allow do
-    origins 'localhost:2045', 'https://tour206.herokuapp.com'
+    origins ['localhost:2045', 'http://tour206.herokuapp.com']
 
     resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    headers: :any,
+    methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
+
+  allow do
+    origins '*'
+
+    resource '*',
+    headers: :any,
+    methods: [:get, :options, :head]
+  end
+  
 end
